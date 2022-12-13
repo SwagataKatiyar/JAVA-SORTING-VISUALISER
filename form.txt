@@ -1,0 +1,40 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submitform1(f)">
+     
+      <div class="form-group">
+        <label for="bookid">Book Id</label>
+        <input type="text" class="form-control" id="bookid" name="bookid"
+           required 
+           [(ngModel)]="book.bookid" 
+           #bid="ngModel"
+           
+        />
+        <div [hidden]="bid.valid || bid.pristine">
+           <b> BookId is Required </b>
+        </div>
+     
+       
+      </div>
+     
+     <br>
+      <div class="form-group">
+        <input type="submit" 
+          [disabled]="f.invalid"
+          class="btn btn-success" 
+          name="submit" 
+          value="search Book" /> 
+          
+          <br> <br>
+        <button type="button" class="btn btn-success" (click)="f.reset()">Reset Form</button>
+      </div>
+     
+    </form>
+     
+    form valid = {{f.valid}} <br>
+    form pristine = {{f.pristine}} <br>
+    form dirty = {{f.dirty}} <br>
+    form values = 
+    {{f.value.bookid}}
+
+    </div>
+
